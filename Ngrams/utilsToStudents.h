@@ -1,35 +1,3 @@
-///////////////////////////////////////////////////////////////
-// see assignment description for explaination of this function
-// make sure that the numbers in probs add up to approximately 1
-
-int drawIndex(vector<double> &probs){
-
-	int size = probs.size();
-
-	double rNum = ( (double) (rand()%size) )/size;
-
-	double sum = 0;
-	
-	// next 7 lines check that your input vector has sum approximately 1
-
-	for ( int i = 0; i < size; i++ )
-		sum = sum+probs[i];
-	if ( sum < 0.95 || sum > 1.05)
-	{ 
-		printf("\nProbabilities  do not add to 1"); 
-		exit(0);
-	}
-
-	sum = 0;
-	
-	for ( int i = 0; i < size; i++ ){
-		sum = sum + probs[i];
-		if (sum > rNum ) return(i);
-	}
-
-	return(size-1);
-}
-
 /////////////////////////////////////////////////////////////////////
 // Compute Levenshtein Distance
 // Martin Ettl, 2012-10-05
